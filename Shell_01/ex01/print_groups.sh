@@ -1,0 +1,1 @@
+id -p $FT_USER | grep "groups" | sed -e "s/ /,/g" | cut '-c7-' | sed -e "s/	//g" | cat -e
