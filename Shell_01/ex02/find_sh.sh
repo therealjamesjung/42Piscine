@@ -1,4 +1,1 @@
-RES=$(find . -type f -name "*.sh" -exec basename {} \;)
-RES=$(echo ${RES} | sed -e "s/[.]sh /\\\n/g")
-
-echo ${RES}
+find . -type f -name "*.sh" -exec basename {} .sh \;
