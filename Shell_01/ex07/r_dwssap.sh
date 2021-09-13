@@ -31,6 +31,6 @@ done
 final_res="$(echo "${final_res}" | rev | cut -c3- | rev)""."
 
 
-echo "${final_res}"\n | cat -e
+echo "${final_res}" | tr -d '$\n' | cat -e
 
 #cat /etc/passwd | sed '/#/d' | sed 's/:.*//' | sed -n '2,$ p' | rev | sort -r | sed -n "$FT_LINE1,$FT_LINE2 p" | tr '\n' ',' | sed 's/,/, /g' | sed 's/, $/./' | tr -d '\n'
