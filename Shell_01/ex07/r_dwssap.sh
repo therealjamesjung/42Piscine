@@ -14,22 +14,23 @@ sorted=($(sort <<<"${result[*]}"))
 flag=0
 
 final_res=""
-
+index=1
 for data in ${sorted[@]}; do
-    if [ "${data}" == "$FT_LINE1" ]; then
+    if ((${index} == $FT_LINE1)); then
         flag=1
     fi
     if ((${flag} == 1)); then
         final_res="${data}, "${final_res}
     fi
-    if [ "${data}" == "$FT_LINE2" ]; then
+    if ((${index} == $FT_LINE2)); then
         flag=0
     fi
+    index=$((${index}+1))
 done
 
 final_res="$(echo "${final_res}" | rev | cut -c3- | rev)""."
-unset IFS
 
-echo "${final_res}" | cat -e
+
+echo "${final_res}"\n | cat -e
 
 #cat /etc/passwd | sed '/#/d' | sed 's/:.*//' | sed -n '2,$ p' | rev | sort -r | sed -n "$FT_LINE1,$FT_LINE2 p" | tr '\n' ',' | sed 's/,/, /g' | sed 's/, $/./' | tr -d '\n'

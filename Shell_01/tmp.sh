@@ -1,5 +1,6 @@
-aaa="asdf:*:asd"
+#IFS=$'\n'
+arr=( $(cat tmp.txt) )
 
-aaa="$(echo "$aaa" | sed -e 's/:\*:.*/ /g')"
-
-echo ${aaa}
+for data in ${arr[@]}; do
+	echo ${data}
+done

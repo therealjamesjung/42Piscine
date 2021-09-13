@@ -1,1 +1,5 @@
-id -p $FT_USER | grep "groups" | sed -e "s/ /,/g" | cut '-c7-' | sed -e "s/	//g" | cat -e
+GRP=$(id -p $FT_USER)
+
+GRP=$(echo ${GRP} | sed -e "s/.*groups //"g | sed -e 's/ /,/g')
+
+echo ${GRP}"\n" | cat -e
