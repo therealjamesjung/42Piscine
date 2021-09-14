@@ -1,11 +1,12 @@
 #include <stdio.h>
-#include <unistd.h>
 
-#include "ft_print_comb2.c"
-
+void	ft_print_combn(int n);
 
 int main()
 {
-	ft_print_comb2();
+	int n;
+
+	scanf("%d", &n);
+	ft_print_combn(n);
 	return 0;
 }
