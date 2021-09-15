@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_combn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 23:25:03 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/15 00:29:37 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/15 12:46:49 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,25 @@ void	_print_int(int n)
 	write(1, &c, 1);
 }
 
+void	_print_seperator(int *arr, int size)
+{
+	int	i;
+	int	flag;
+
+	flag = 0;
+	i = size - 1;
+	while (i >= 0)
+	{
+		if (arr[i] != 10 - size + i)
+		{
+			flag = 1;
+		}
+		i--;
+	}
+	if (flag == 1)
+		write(1, ", ", 2);
+}
+
 void	_print_arr(int *arr, int size)
 {
 	int	i;
@@ -30,7 +49,7 @@ void	_print_arr(int *arr, int size)
 		_print_int(arr[i]);
 		i++;
 	}
-	write(1, " ", 1);
+	_print_seperator(arr, size);
 }
 
 void	comb(int *arr, int size, int idx, int r)

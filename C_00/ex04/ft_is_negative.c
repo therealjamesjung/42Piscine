@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include<unistd.h>
 
 void	ft_is_negative(int n)
 {
-	char c;
+	char	c;
 
 	if (n < 0)
 		c = 'N';

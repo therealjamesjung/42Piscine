@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 18:18:46 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/12 18:27:28 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/15 12:59:10 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

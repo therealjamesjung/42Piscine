@@ -3,49 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:17:19 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/11 16:17:21 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/15 11:32:34 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/11 15:43:11 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/11 15:43:13 by jaekjung         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include <stdio.h>
+#include <unistd.h>
 
 typedef struct s_data
 {
-	char c;
-	int i;
-	int j;
-} t_data;
+	char	c;
+	int		i;
+	int		j;
+}	t_data;
 
-t_data _init(void)
+t_data	_init(void)
 {
-	t_data res;
+	t_data	res;
 
 	res.c = '0';
 	res.i = 0;
 	res.j = 0;
-
-	return res;
+	return (res);
 }
 
 int	_get_digits(int n)
 {
-	int digit;
+	int	digit;
 
 	digit = 1;
 	while (n >= 10)
@@ -53,14 +39,13 @@ int	_get_digits(int n)
 		digit *= 10;
 		n /= 10;
 	}
-
 	return (digit);
 }
 
 void	ft_putnbr(int nb)
 {
 	char	c;
-	char 	tmp;
+	char	tmp;
 	int		digit;
 
 	c = '0';
@@ -85,16 +70,12 @@ void	ft_putnbr(int nb)
 	}
 }
 
-
 void	_print_seperator(t_data data)
 {
-	char c;
+	char	c;
 
 	if (data.i == 98 && data.j == 99)
-	{
-		c = '\n';
-		write (1, &c, 1);
-	}
+		return ;
 	else
 	{
 		c = ',';
@@ -104,9 +85,10 @@ void	_print_seperator(t_data data)
 	}
 }
 
+/*
 void	_print(t_data data)
 {
-	char c;
+	char	c;
 
 	c = ' ';
 	ft_putnbr(data.i);
@@ -114,18 +96,21 @@ void	_print(t_data data)
 	ft_putnbr(data.j);
 	_print_seperator(data);
 }
-
+*/
 void	ft_print_comb2(void)
 {
-	t_data d;
-	
+	t_data	d;
+
 	d = _init();
 	while (d.i < 100)
 	{
 		d.j = d.i + 1;
 		while (d.j < 100)
 		{
-			_print(d);
+			ft_putnbr(d.i);
+			write(1, " ", 1);
+			ft_putnbr(d.j);
+			_print_seperator(d);
 			d.j++;
 		}
 		d.i++;
