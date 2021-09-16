@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 20:49:49 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/15 21:32:53 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/16 16:51:26 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,33 +24,34 @@ int	ft_strlen(char *str)
 	return (index);
 }
 
+// Returns the full length of output string
+
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int i;
-	unsigned int dest_len;
-	char	*i_dest;
-	char 	*i_src;
+	unsigned int	index;
+	unsigned int	dest_len;
+	unsigned int	src_len;
 
-	i_dest = dest;
-	i_src = src;
-	while (size != 0 && *dest != '\0')
+	index = 0;
+	dest_len =	ft_strlen(dest);
+	src_len = ft_strlen(src);
+	while (index < size && *dest != '\0')
 	{
 		dest++;
-		size--;
+		index++;
 	}
-		
-	
-	dest_len = dest - i_dest;
-	i = 0;
-	if (size == dest_len)
-		return (dest_len + ft_strlen(src));
-	while (i < size - 1 && *src !='\0')
+
+	if (index == size)
+		return (src_len + size);
+
+	while (index < size - 1 && *src != '\0')
 	{
 		*dest = *src;
+		index++;
 		dest++;
 		src++;
-		i++;
 	}
 	*dest = '\0';
-	return (dest_len + (src - i_src));
+
+	return (dest_len + src_len);
 }
