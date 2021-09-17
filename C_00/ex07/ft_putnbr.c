@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:23:58 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/15 11:30:24 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/17 11:19:22 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ void	ft_putnbr(int nb)
 	else if (nb == 0)
 	{
 		write(1, "0", 1);
+		return ;
+	}
+	else if (nb == -2147483648)
+	{
+		write(1, "2147483648", 10);
 		return ;
 	}
 	digit = _get_digits(nb);
