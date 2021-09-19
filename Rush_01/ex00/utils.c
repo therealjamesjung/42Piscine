@@ -6,13 +6,12 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 14:29:39 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/19 02:56:19 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/19 22:24:58 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data.h"
 #include <unistd.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 int	_check_input(int argc, char **argv, int n)
@@ -32,7 +31,7 @@ int	_check_input(int argc, char **argv, int n)
 			cnt++;
 		tmp++;
 	}
-	if (cnt != n * n)
+	if (cnt != n * 4)
 		return (0);
 	return (1);
 }
@@ -93,4 +92,13 @@ t_point	_create_pnt(int z, int y, int x, int value)
 	new_point.z = z;
 	new_point.value = value;
 	return (new_point);
+}
+
+int	_check_fixable(int a, int b, int n)
+{
+	if (a == n && b == 1)
+		return (1);
+	else if (a == 1 && b == n)
+		return (-1);
+	return (0);
 }

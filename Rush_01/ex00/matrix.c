@@ -6,14 +6,13 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 15:19:30 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/19 21:26:50 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/19 22:00:29 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "data.h"
-
-t_point	_create_pnt(int z, int y, int x, int value);
+#include "matrix.h"
+#include <stdlib.h>
 
 int	***_create_matrix(int n)
 {
