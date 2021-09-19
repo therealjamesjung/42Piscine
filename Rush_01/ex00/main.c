@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 14:29:35 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/19 15:34:09 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/19 20:48:42 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	***_fix_pos(int ***matrix, t_point point, int n);
 void _print_map(int **map, int n);
 void _print_matrix(int ***matrix, int n);
 t_point _get_next_pnt(int ***m, int n);
-void _solve(int **map, int ***matrix, t_data input, int cnt);
+void _solve(int **map, int ***matrix, t_data input, t_point pnt, int cnt);
 
 int main(int argc, char **argv)
 {
@@ -84,7 +84,7 @@ int main(int argc, char **argv)
 	
 	_check_vis(map, input, _create_pnt(-1, 1, 0, -1));
 	*/
-	_solve(map, matrix, input, 0);
+	_solve(map, matrix, input, _create_pnt(0, 0, 0, -1), 0);
 	/*
 	printf("Map\n");
 	_print_map(map, n);

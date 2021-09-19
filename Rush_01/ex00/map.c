@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 20:27:44 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/19 15:08:14 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/19 18:19:38 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,13 @@ void _print_map(int **map, int n)
 		j = -1;
 		while (++j < n)
 		{
+			printf("%d ",map[i][j]);
 			c = '0' + map[i][j];
-			write(1, &c, 1);
-			if (j != n)
-				write(1, " ", 1);
+			//write(1, &c, 1);
+			//if (j != n)
+				//write(1, " ", 1);
 		}
-		write(1, "\n", 1);
+		//write(1, "\n", 1);
+		printf("\n");
 	}
 }

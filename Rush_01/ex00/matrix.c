@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 15:19:30 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/19 15:26:56 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/19 20:48:36 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ int	***_create_matrix(int n)
 int	***_fix_pos(int ***matrix, t_point point, int n)
 {
 	int	i;
+
+	if (point.value == -1)
+		return (matrix);
 
 	i = 0;
 	while (i < n)
