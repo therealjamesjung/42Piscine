@@ -6,11 +6,10 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 15:19:30 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/19 20:48:36 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/19 21:26:50 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "data.h"
 
@@ -46,7 +45,6 @@ int	***_fix_pos(int ***matrix, t_point point, int n)
 
 	if (point.value == -1)
 		return (matrix);
-
 	i = 0;
 	while (i < n)
 		matrix[i++][point.y][point.x] = -1;
@@ -56,15 +54,14 @@ int	***_fix_pos(int ***matrix, t_point point, int n)
 	i = 0;
 	while (i < n)
 		matrix[point.value - 1][point.y][i++] = -1;
-	
 	return (matrix);
 }
 
-t_point _get_next_pnt(int ***m, int n)
+t_point	_get_next_pnt(int ***m, int n)
 {
-	int i;
-	int j;
-	int k;
+	int	i;
+	int	j;
+	int	k;
 
 	i = n;
 	while (--i >= 0)
@@ -76,25 +73,9 @@ t_point _get_next_pnt(int ***m, int n)
 			while (++k < n)
 			{
 				if (m[i][j][k] != -1)
-					return _create_pnt(i, j, k, i + 1);
+					return (_create_pnt(i, j, k, i + 1));
 			}
 		}
 	}
-	return _create_pnt(-1, -1, -1, -1);
-}
-
-void _print_matrix(int ***matrix, int n)
-{
-	int i,j,k;
-
-	for (i=0; i<n; i++)
-	{
-		printf("%dth floor\n", i);
-		for (j=0; j<n; j++)
-		{
-			for (k=0; k<n; k++)
-				printf("%d ",matrix[i][j][k]);
-			printf("\n");
-		}
-	}
+	return (_create_pnt(-1, -1, -1, -1));
 }
