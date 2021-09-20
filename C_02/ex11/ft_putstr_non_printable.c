@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 18:18:46 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/20 15:05:46 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/20 15:06:53 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,4 @@ void	ft_putstr_non_printable(char *str)
 		}
 		index++;
 	}
-}
-
-#include <stdio.h>
-
-int main()
-{
-	ft_putstr_non_printable("Coucou\ntu vas bien ?");
-
-	return 0;
 }
