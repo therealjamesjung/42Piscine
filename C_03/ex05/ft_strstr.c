@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 16:52:53 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/20 16:50:29 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/20 21:38:01 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,31 +22,30 @@ int	ft_strlen(char *str)
 	return (index);
 }
 
-int _check(char *str, char *to_find)
+int	_check(char *str, char *to_find)
 {
-	int index;
-	int len;
-	
+	int	index;
+	int	len;
+
 	index = 0;
 	len = ft_strlen(to_find);
-	while(index < len)
+	while (index < len)
 	{
 		if (str[index] != to_find[index])
-			return 0;
+			return (0);
 		index++;
 	}
-	return 1;
+	return (1);
 }
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	char *start;
+	char	*start;
 
 	if (ft_strlen(str) < ft_strlen(to_find))
-		return "\0";
+		return ("\0");
 	if (*to_find == '\0')
 		return (str);
-
 	start = str;
 	while (*str)
 	{
@@ -55,5 +54,5 @@ char	*ft_strstr(char *str, char *to_find)
 				return (str);
 		str++;
 	}
-	return "\0";
+	return ("\0");
 }
