@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 17:43:44 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/20 15:07:49 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/20 19:38:52 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	_is_end(char c)
 
 void	_cap(char *c)
 {
-	*c = *c - 'a' + 'A';
+	if (_is_low(*c))
+		*c = *c - 'a' + 'A';
 }
 
 void	_low(char *c)
@@ -49,14 +50,16 @@ char	*ft_strcapitalize(char *str)
 	while (str[index] != '\0')
 	{
 		if (_is_end(str[index]))
-		{
 			flag = 1;
-		}
-		else if (flag)
+		else
 		{
-			if (_is_low(str[index]))
+			if (flag)
+			{
 				_cap(&str[index]);
-			flag = 0;
+				flag = 0;
+			}
+			else
+				_low(&str[index]);
 		}
 		index++;
 	}

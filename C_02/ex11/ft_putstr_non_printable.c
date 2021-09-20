@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 18:18:46 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/20 15:06:53 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/20 19:39:21 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ void	ft_putstr_non_printable(char *str)
 	unsigned char	tmp;
 
 	index = 0;
-	while (str[index] != '\0')
+	while (1)
 	{
 		tmp = (unsigned char) str[index];
+		if (tmp == '\0')
+			break ;
 		if (_is_prtble(tmp) == 1)
 			ft_putchar(tmp);
 		else
