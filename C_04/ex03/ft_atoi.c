@@ -6,41 +6,9 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 23:53:27 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/21 01:29:53 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/21 02:20:36 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	_in_string(char c, char *str)
-{
-	while (*str != '\0')
-	{
-		if (*str == c)
-			return (1);
-		str++;
-	}
-	return (0);
-}
-
-int	_is_space(char c)
-{
-	if (_in_string(c, "\t\n\v\f\r "))
-		return (1);
-	return (0);
-}
-
-int	_is_operator(char c)
-{
-	if (_in_string(c, "+-"))
-		return (1);
-	return (0);
-}
-
-int	_is_number(char c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
 
 int	ft_atoi(char *str)
 {
@@ -49,15 +17,15 @@ int	ft_atoi(char *str)
 
 	n = 0;
 	is_positive = 1;
-	while (_is_space(*str))
+	while (*str == ' ' || *str == '\t' || *str == '\n')
 		str++;
-	while (_is_operator(*str))
+	while (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
 			is_positive *= -1;
 		str++;
 	}
-	while (_is_number(*str))
+	while (*str >= '0' && *str <= '9')
 	{
 		n *= 10;
 		n += *str - '0';
