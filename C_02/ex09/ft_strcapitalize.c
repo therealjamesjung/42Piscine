@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 17:43:44 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/20 13:25:35 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/20 14:37:24 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,13 @@ int	_is_low(char c)
 
 int	_is_end(char c)
 {
-	if (c == ' ' || c == '-' || c == '+')
-		return (1);
-	return (0);
+	if (c >= 'a' && c <= 'z')
+		return (0);
+	else if (c >= 'A' && c <= 'Z')
+		return (0);
+	else if (c >= '0' && c <= '9')
+		return (0);
+	return (1);
 }
 
 void	_cap(char *c)
@@ -41,22 +45,29 @@ char	*ft_strcapitalize(char *str)
 	int flag;
 
 	index = 0;
-	flag = 1;
+	flag = 1;;
 	while (str[index] != '\0')
 	{
-		if (flag == 1)
+		if (_is_end(str[index]))
+		{
+			flag = 1;
+		}
+		else if (flag)
 		{
 			if (_is_low(str[index]))
 				_cap(&str[index]);
-			else
-				
 			flag = 0;
 		}
-		else if (_is_end(str[index]))
-			flag = 1;
-		else if (flag == 0)
-			_low(&str[index]);
 		index++;
 	}
 	return (str);
+}
+
+#include <stdio.h>
+
+int main()
+{
+	char s[100] = ",!sia[*im;     92zc[p0#?-+'#>.@T";
+	printf("%s", ft_strcapitalize(s));
+	return 0;
 }
