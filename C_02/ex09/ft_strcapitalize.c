@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 17:43:44 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/20 14:37:24 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/20 15:07:49 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ void	_low(char *c)
 char	*ft_strcapitalize(char *str)
 {
 	int	index;
-	int flag;
+	int	flag;
 
 	index = 0;
-	flag = 1;;
+	flag = 1;
 	while (str[index] != '\0')
 	{
 		if (_is_end(str[index]))
@@ -61,13 +61,4 @@ char	*ft_strcapitalize(char *str)
 		index++;
 	}
 	return (str);
-}
-
-#include <stdio.h>
-
-int main()
-{
-	char s[100] = ",!sia[*im;     92zc[p0#?-+'#>.@T";
-	printf("%s", ft_strcapitalize(s));
-	return 0;
 }
