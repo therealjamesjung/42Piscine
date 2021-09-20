@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 16:52:53 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/15 20:48:42 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/20 16:50:29 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ char	*ft_strstr(char *str, char *to_find)
 
 	if (ft_strlen(str) < ft_strlen(to_find))
 		return "\0";
+	if (*to_find == '\0')
+		return (str);
 
 	start = str;
 	while (*str)
