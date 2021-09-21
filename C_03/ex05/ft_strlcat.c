@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 20:49:49 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/20 21:37:05 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/22 01:10:49 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ int	ft_strlen(char *str)
 	}
 	return (index);
 }
-
-// Returns the full length of output string
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
