@@ -6,16 +6,16 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 23:53:27 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/21 02:20:36 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/22 01:28:15 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(char *str)
 {
-	int	n;
+	int	answer;
 	int	is_positive;
 
-	n = 0;
+	answer = 0;
 	is_positive = 1;
 	while (*str == ' ' || *str == '\t' || *str == '\n')
 		str++;
@@ -27,9 +27,9 @@ int	ft_atoi(char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		n *= 10;
-		n += *str - '0';
+		answer *= 10;
+		answer += *str - '0';
 		str++;
 	}
-	return (n * is_positive);
+	return (answer * is_positive);
 }
