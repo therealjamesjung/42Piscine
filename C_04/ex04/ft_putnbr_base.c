@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 01:40:32 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/21 11:29:29 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/21 16:34:22 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,8 @@ int	_validate_base(char *base)
 	{
 		if (base[i] == ' ' || base[i] == '+' || base[i] == '-')
 			return (0);
-		else if (base[i] == '\n' || base[i] == '\t')
-			return (0);
-		else if (base[i] == '\v' || base[i] == '\r')
+		else if (base[i] == '\n' || base[i] == '\t' || \
+			base[i] == '\v' || base[i] == '\r')
 			return (0);
 	}
 	i = -1;
