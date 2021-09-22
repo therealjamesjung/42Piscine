@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 02:13:31 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/22 01:34:31 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/22 17:56:32 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	_validate_base(char *base)
 	return (1);
 }
 
-int	_get_base(char c, char *base)
+long long	_get_base(char c, char *base)
 {
 	int	i;
 
@@ -65,15 +65,16 @@ int	_get_base(char c, char *base)
 
 int	ft_atoi_base(char *str, char *base)
 {
-	int	base_n;
-	int	answer;
-	int	is_positive;
+	int			base_n;
+	int			is_positive;
+	long long	answer;
 
 	if (!_validate_base(base))
 		return (0);
 	base_n = ft_strlen(base);
 	is_positive = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n')
+	while (*str == '\t' || *str == '\n' || *str == '\v' || *str == '\f' \
+		|| *str == '\r' || *str == ' ')
 		str++;
 	while (*str == '-' || *str == '+')
 	{

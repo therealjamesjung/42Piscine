@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 01:40:32 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/21 16:34:22 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/22 17:56:16 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	_validate_base(char *base)
 	return (1);
 }
 
-void	_print_base(int n, char *base, int base_n)
+void	_print_base(long long n, char *base, int base_n)
 {
 	if (n >= base_n)
 		_print_base(n / base_n, base, base_n);
@@ -60,12 +60,15 @@ void	_print_base(int n, char *base, int base_n)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
+	long long	n;
+
+	n = (long long) nbr;
 	if (!_validate_base(base))
 		return ;
-	if (nbr < 0)
+	if (n < 0)
 	{
 		write(1, "-", 1);
-		nbr *= -1;
+		n *= -1;
 	}
-	_print_base(nbr, base, ft_strlen(base));
+	_print_base(n, base, ft_strlen(base));
 }

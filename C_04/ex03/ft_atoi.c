@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 23:53:27 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/22 01:28:15 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/22 17:05:32 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	ft_atoi(char *str)
 
 	answer = 0;
 	is_positive = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n')
+	while (*str == '\t' || *str == '\n' || *str == '\v' || *str == '\f' \
+		|| *str == '\r' || *str == ' ')
 		str++;
 	while (*str == '-' || *str == '+')
 	{
