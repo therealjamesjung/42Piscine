@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 00:50:17 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/21 00:57:10 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/22 20:25:45 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	ft_sqrt(int nb)
 	return (0);
 }
 
-int	ft_is_prime(int nb)
+int	ft_is_prime(long long nb)
 {
-	int	i;
+	long long	i;
 
 	if (nb <= 1)
 		return (0);
@@ -46,7 +46,12 @@ int	ft_is_prime(int nb)
 
 int	ft_find_next_prime(int nb)
 {
-	while (!ft_is_prime(nb))
+	long long	i;
+
+	if (nb < 0)
+		return (2);
+	i = (long long) nb + 1;
+	while (!ft_is_prime(i))
 		i++;
-	return (nb);
+	return (i);
 }
