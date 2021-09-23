@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 00:17:58 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/24 01:14:17 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/24 01:23:30 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,31 +75,4 @@ char *ft_strjoin(int size, char **strs, char *sep)
 	}
 	*tmp = '\0';
 	return (result);
-}
-
-#include <stdio.h>
-
-int main()
-{
-	char **strs;
-	char sep[10] = ", ";
-
-	strs = (char **)malloc(sizeof(char *) * 3);
-
-	for (int i=0; i<3; i++)
-		strs[i] = (char *)malloc(sizeof(char) * 10);
-
-	strs[0][0] = 'H';
-	strs[0][1] = 'a';
-	strs[0][2] = 'y';
-	strs[1][0] = 'H';
-	strs[1][1] = 'a';
-	strs[1][2] = 'y';
-	strs[2][0] = 'H';
-	strs[2][1] = 'a';
-	strs[2][2] = 'y';
-
-	printf("%s\n", ft_strjoin(3, strs, sep));
-
-	return 0;
 }
