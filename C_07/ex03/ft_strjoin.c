@@ -6,12 +6,11 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 00:17:58 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/24 01:23:30 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/24 01:23:42 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
