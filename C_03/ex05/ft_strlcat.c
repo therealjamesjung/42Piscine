@@ -6,11 +6,9 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 20:49:49 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/22 01:10:49 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/23 13:46:11 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
