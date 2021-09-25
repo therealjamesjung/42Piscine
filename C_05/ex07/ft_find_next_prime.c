@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 00:50:17 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/25 15:00:57 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/25 18:04:35 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,9 @@ int	ft_is_prime(int nb)
 
 int	ft_find_next_prime(int nb)
 {
-	int	i;
-
 	if (nb < 0)
 		return (2);
-	while (!ft_is_prime(i))
-		i++;
-	return (i);
+	while (!ft_is_prime(nb))
+		nb++;
+	return (nb);
 }
