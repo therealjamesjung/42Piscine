@@ -3,26 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 00:39:27 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/23 14:35:47 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/25 10:16:38 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	ft_sqrt(int nb)
-{
-	int	i;
-
-	if (nb <= 0)
-		return (0);
-	i = 1;
-	while (i * i < nb && i <= 46340)
-		++i;
-	if (i * i == nb)
-		return (i);
-	return (0);
-}
 
 int	ft_is_prime(int nb)
 {
@@ -35,7 +21,7 @@ int	ft_is_prime(int nb)
 	if (nb % 2 == 0 || nb % 3 == 0)
 		return (0);
 	i = 2;
-	while (i <= ft_sqrt(nb))
+	while (i * i <= nb && i <= 46340)
 	{
 		if (nb % i == 0)
 			return (0);
