@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 15:53:45 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/23 18:08:58 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/25 17:44:29 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int	ft_strlen(char *str)
 	return (index);
 }
 
-char *ft_strdup(char *src)
+char	*ft_strdup(char *src)
 {
-	int i;
-	char *dup_str;
-	
-	dup_str = (char *)malloc(sizeof(char) * ft_strlen(src));
+	int		i;
+	char	*dup_str;
+
+	dup_str = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
 	if (dup_str == NULL)
 		return (0);
 	i = -1;
