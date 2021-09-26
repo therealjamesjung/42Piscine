@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strs_to_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/23 15:53:45 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/25 17:44:29 by jaekjung         ###   ########.fr       */
+/*   Created: 2021/09/25 20:06:48 by jaekjung          #+#    #+#             */
+/*   Updated: 2021/09/25 20:08:30 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include <stdlib.h>
+#include "ft_stock_str.h"
 
 int	ft_strlen(char *str)
 {
@@ -35,4 +37,25 @@ char	*ft_strdup(char *src)
 		dup_str[i] = src[i];
 	dup_str[i] = '\0';
 	return (dup_str);
+}
+
+t_stock_str	*ft_strs_to_tab(int ac, char **av)
+{
+	int					index;
+	t_stock_str	*array;
+
+	array = malloc((ac + 1) * sizeof(t_stock_str))
+
+	if (array == NULL)
+		return (NULL);
+	index = 0;
+	while (index < ac)
+	{
+		array[index].size = ft_str_length(av[index]);
+		array[index].str = av[index];
+		array[index].copy = ft_strdup(av[index]);
+		index++;
+	}
+	array[index] = (struct s_stock_str){0, 0, 0};
+	return (array);
 }
