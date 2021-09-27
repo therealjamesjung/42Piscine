@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_abs.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 01:58:23 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/24 01:59:43 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/27 13:48:54 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,4 @@
 
 # define ABS(n) (n < 0 ? n * -1 : n)
 
-# endif
+#endif

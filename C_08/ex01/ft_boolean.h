@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 01:53:59 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/24 01:57:53 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/27 13:48:34 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@
 
 # define EVEN(n) (n % 2 == 0)
 
-typedef	int	t_bool;
+typedef int	t_bool;
 
 #endif
