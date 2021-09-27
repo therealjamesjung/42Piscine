@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 10:52:27 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/25 14:51:31 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/27 13:34:43 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	*_to_base(char *base, long long n, int to_base)
 	int		is_positive;
 	char	*result;
 
-	is_positive = (n > 0);
+	is_positive = (n >= 0);
 	length = _calc_length(n, to_base, is_positive);
 	result = (char *)malloc((length + 1) * sizeof(char));
 	if (result == NULL)
@@ -101,6 +101,8 @@ char	*_to_base(char *base, long long n, int to_base)
 	result[length] = '\0';
 	return (result);
 }
+#include <stdio.h>
+
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
