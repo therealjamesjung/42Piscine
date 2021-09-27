@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 20:06:48 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/27 14:23:37 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/27 19:32:47 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,22 @@ char	*ft_strdup(char *src)
 	return (dup_str);
 }
 
-t_stock_str	*ft_strs_to_tab(int argc, char **argv)
+t_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
 	int			index;
 	t_stock_str	*array;
 
-	if (!argc || !argv)
-		return ((t_stock_str *) NULL);
-	array = malloc((argc + 1) * sizeof(t_stock_str));
+	if (!ac || !av)
+		return (0);
+	array = (t_stock_str *)malloc((ac + 1) * sizeof(t_stock_str));
 	if (!array)
 		return (0);
 	index = 0;
-	while (index < argc)
+	while (index < ac)
 	{
-		array[index].size = ft_strlen(argv[index]);
-		array[index].str = argv[index];
-		array[index].copy = ft_strdup(argv[index]);
+		array[index].size = ft_strlen(av[index]);
+		array[index].str = av[index];
+		array[index].copy = ft_strdup(av[index]);
 		index++;
 	}
 	array[index].str = 0;
