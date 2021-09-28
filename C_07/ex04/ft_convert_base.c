@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 10:52:27 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/27 15:45:05 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/28 14:20:42 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
 int	ft_strlen(char *str);
 
@@ -43,10 +44,12 @@ int	_validate_base(char *base)
 	return (1);
 }
 
-long long	_calc_length(long long n, int to_base, int is_positive)
+int	_calc_length(int n, int to_base)
 {
-	long long	length;
+	int	length;
+	int	is_positive;
 
+	is_positive = (n >= 0);
 	length = 0;
 	while (1)
 	{
@@ -60,9 +63,9 @@ long long	_calc_length(long long n, int to_base, int is_positive)
 	return (length);
 }
 
-long long	_get_base(char c, char *base)
+int	_get_base(char c, char *base)
 {
-	long long	i;
+	int	i;
 
 	i = 0;
 	while (base[i])
@@ -74,29 +77,30 @@ long long	_get_base(char c, char *base)
 	return (-1);
 }
 
-char	*_to_base(char *base, long long n, int to_base)
+char	*_to_base(char *base, int n, int to_base)
 {
-	int		index;
-	int		length;
-	int		is_positive;
-	char	*result;
+	int			index;
+	int			length;
+	int			is_positive;
+	char		*result;
+	long long	tmp;
 
 	is_positive = (n >= 0);
-	length = _calc_length(n, to_base, is_positive);
+	length = _calc_length(n, to_base);
 	result = (char *)malloc((length + 1) * sizeof(char));
 	if (result == NULL)
 		return (0);
-	index = 0;
+	index = !is_positive;
+	tmp = (long long) n;
 	if (!is_positive)
 	{
 		result[0] = '-';
-		index = 1;
-		n *= -1;
+		tmp *= -1;
 	}
 	while (index < length)
 	{
-		result[length - is_positive - index++] = base[n % to_base];
-		n /= to_base;
+		result[length - is_positive - index++] = base[tmp % to_base];
+		tmp /= to_base;
 	}
 	result[length] = '\0';
 	return (result);
@@ -104,9 +108,9 @@ char	*_to_base(char *base, long long n, int to_base)
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int			from_base;
-	int			is_positive;
-	long long	result;
+	int	from_base;
+	int	is_positive;
+	int	result;
 
 	if (!_validate_base(base_from) || !_validate_base(base_to))
 		return (NULL);
