@@ -3,36 +3,33 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 15:19:38 by jaekjung          #+#    #+#              #
-#    Updated: 2021/09/27 15:20:44 by jaekjung         ###   ########.fr        #
+#    Updated: 2021/09/28 12:48:29 by jaekjung         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -c
+FLAGS = -Wall -Wextra -Werror
 
-SRC = ./sources/
-INC = ./includes/
-OBJ = ./objects/
+SRC = ./srcs
+INC = ./includes
 
 TARGET = libft.a
-SRCFILES = $(SRCDIR)/ft_putchar.c $(SRCDIR)/ft_swap.c $(SRCDIR)/ft_putstr.c $(SRCDIR)/ft_strlen.c $(SRCDIR)/ft_strcmp.c
-OBJFILES = $(SOURCES:.c=.o)
-
-all: $(TARGET)
+SRCFILES = $(SRC)/ft_putchar.c $(SRC)/ft_swap.c $(SRC)/ft_putstr.c $(SRC)/ft_strlen.c $(SRC)/ft_strcmp.c
+OBJFILES = $(shell echo ${SRCFILES} | sed -e "s/[.]c$ /.o/g" )
 
 %.o: %.c
-	$(CC) $(CFLAGS) $< -o $@ -I $(INCDIR)
+	$(CC) $(FLAGS) -c $< -o $@ -I $(INC)
+
+$(TARGET): $(OBJFILES)
+	ar rcs $@ $(OBJFILES)
 	
-$(TARGET): $(OBJECTS)
-	ar cr $@ $(OBJECTS)
+all: $(TARGET)
 
 clean:
 	rm -f $(OBJFILES)
-
 fclean: clean
 	rm -f $(TARGET)
-
 re: fclean all
