@@ -16,8 +16,13 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+#include <stdio.h>
+
+void	_test_put_inputs(char **inputs);
+
 void	_get_answer(int **map, t_input *input, int is_end)
 {
+	printf("a\n");
 	_calc_map(map, input);
 	_print_answer(_solve(map, input), input);
 	if (!is_end)
@@ -47,8 +52,11 @@ void	_run(int argc, char **argv)
 		input = _file_open(argv[i], (argc == 1));
 		if (!_check_input(input))
 			continue ;
+		printf("a\n");
 		map = (int **)malloc(sizeof(int *) * input->n);
+		printf("b\n");
 		_guard_map(map, input, 0);
+		printf("c\n");
 		j = -1;
 		while (++j < input->n)
 		{
@@ -65,9 +73,9 @@ void	_run(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	_run(argc, argv);
-	while (1)
-	{
-		;
-	}
+	// while (1)
+	// {
+	// 	;
+	// }
 	return (0);
 }

@@ -19,7 +19,7 @@ SRC = ./sources/
 INC = ./includes/
 OBJ = ./objects/
 
-SRCFILES = $(SRC)main.c $(SRC)logic.c $(SRC)utils.c $(SRC)newparser.c $(SRC)string_utils.c $(SRC)atoi.c $(SRC)error.c $(SRC)guard.c $(SRC)ft_split.c
+SRCFILES = $(SRC)main.c $(SRC)logic.c $(SRC)utils.c $(SRC)parser.c $(SRC)string_utils.c $(SRC)atoi.c $(SRC)error.c $(SRC)guard.c $(SRC)ft_split.c
 OBJFILES = $(addprefix $(OBJ), $(notdir $(SRCFILES:.c=.o)))
 
 all : $(NAME)

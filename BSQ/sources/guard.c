@@ -14,6 +14,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include <stdio.h>
+
 t_input	*_free_input(t_input *input, int n);
 void	_free_all(int **map, t_input *input, int n);
 t_input	*_free_map(int **map, int n);
@@ -22,6 +24,7 @@ void	_guard_map(int **map, t_input *input, int index)
 {
 	if (!map)
 	{
+		printf("guardmap\n");
 		_free_all(map, input, index);
 		exit(1);
 	}

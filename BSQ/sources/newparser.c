@@ -171,6 +171,7 @@ t_input	*_new_parser(char *file_name)
 	input = (t_input *)malloc(sizeof(t_input) * 1);
 	if (!input)
 		return (_free_input_file(input_file)); // free
+	
 	_set_map_info(input, _read_line(inputs, 0, input->n));
 	return (_set_map(input, inputs));
 }
