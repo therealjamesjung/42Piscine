@@ -6,19 +6,30 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 10:26:37 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/30 02:41:58 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/30 04:10:39 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data.h"
 #include "main.h"
-#include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
 
-#include <stdio.h>
+int	**_alloc_map(t_input *input)
+{
+	int	i;
+	int	**map;
 
-void	_test_put_inputs(char **inputs);
+	map = (int **)malloc(sizeof(int *) * input->n);
+	_guard_map(map, input, 0);
+	i = -1;
+	while (++i < input->n)
+	{
+		map[i] = (int *)malloc(sizeof(int) * input->m);
+		_guard_map(map, input, i + 1);
+	}
+	return (map);
+}
 
 void	_get_answer(int **map, t_input *input, int is_end)
 {
@@ -41,25 +52,20 @@ int	_check_input(t_input *input)
 void	_run(int argc, char **argv)
 {
 	int		i;
-	int		j;
 	int		**map;
 	t_input	*input;
 
 	i = 0;
 	while (++i < argc || argc == 1)
 	{
-		printf("Stdin %d\n", (argc == 1));
 		input = _file_open(argv[i], (argc == 1));
 		if (!_check_input(input))
-			continue ;
-		map = (int **)malloc(sizeof(int *) * input->n);
-		_guard_map(map, input, 0);
-		j = -1;
-		while (++j < input->n)
 		{
-			map[j] = (int *)malloc(sizeof(int) * input->m);
-			_guard_map(map, input, j + 1);
+			if (argc == 1)
+				break ;
+			continue ;
 		}
+		map = _alloc_map(input);
 		_get_answer(map, input, (i == argc - 1));
 		_free_all(map, input, input->n);
 		if (argc == 1)
@@ -70,9 +76,5 @@ void	_run(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	_run(argc, argv);
-	while (1)
-	{
-		;
-	}
 	return (0);
 }

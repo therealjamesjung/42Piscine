@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 10:25:36 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/30 00:36:32 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/30 03:44:53 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 #include "logic.h"
 #include <stdlib.h>
 #include <unistd.h>
-
-#include <stdio.h>
-void	_test_put_inputs(char **inputs);
 
 void	_calc_map(int **map, t_input *input)
 {
@@ -95,6 +92,23 @@ t_answer	_solve(int **map, t_input *input)
 	return (answer);
 }
 
+char	_get_char(t_answer answer, t_input *input, int i, int j)
+{
+	char	c;
+
+	if (input->map[i][j] == input->obstacle)
+		c = (unsigned char) input->obstacle;
+	else
+	{
+		if ((i >= answer.top_l.y && i <= answer.bot_l.y) && \
+			(j >= answer.top_l.x && j <= answer.top_r.x))
+			c = (unsigned char) input->fill;
+		else
+			c = (unsigned char) input->blank;
+	}
+	return (c);
+}
+
 void	_print_answer(t_answer answer, t_input *input)
 {
 	int				i;
@@ -107,22 +121,13 @@ void	_print_answer(t_answer answer, t_input *input)
 	i = -1;
 	ret = (char *)malloc(sizeof(char) * (input->size));
 	if (!ret)
-		exit(1); // TODO free all
+		_guard_input(input);
 	while (++i < input->n)
 	{
 		j = -1;
 		while (++j < input->m)
 		{
-			if (input->map[i][j] == input->obstacle)
-				c = (unsigned char) input->obstacle;
-			else
-			{
-				if ((i >= answer.top_l.y && i <= answer.bot_l.y) && \
-					(j >= answer.top_l.x && j <= answer.top_r.x))
-					c = (unsigned char) input->fill;
-				else
-					c = (unsigned char) input->blank;
-			}
+			c = _get_char(answer, input, i, j);
 			ret[size++] = c;
 		}
 		ret[size++] = '\n';

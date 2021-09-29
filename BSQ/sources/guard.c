@@ -6,15 +6,13 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 23:26:59 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/30 01:18:32 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/30 04:19:42 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data.h"
 #include <stdlib.h>
 #include <unistd.h>
-
-#include <stdio.h>
 
 t_input	*_free_input(t_input *input, int n);
 void	_free_all(int **map, t_input *input, int n);
@@ -24,7 +22,6 @@ void	_guard_map(int **map, t_input *input, int index)
 {
 	if (!map)
 	{
-		printf("guardmap\n");
 		_free_all(map, input, index);
 		exit(1);
 	}

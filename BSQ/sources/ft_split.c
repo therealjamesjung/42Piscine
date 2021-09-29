@@ -6,11 +6,10 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 15:05:16 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/30 01:02:44 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/30 04:09:43 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 
 int	ft_strlen(char *str);
@@ -73,6 +72,15 @@ char	*_init_str(char *str, char *charset, int length)
 	return (new_str);
 }
 
+void	_guard_result(char **result, char *_removed)
+{
+	if (!result)
+	{
+		free(_removed);
+		exit(1);
+	}
+}
+
 char	**ft_split(char *str, char *charset)
 {
 	int		i;
@@ -84,8 +92,7 @@ char	**ft_split(char *str, char *charset)
 	len = ft_strlen(str);
 	_removed = _init_str(str, charset, len);
 	result = (char **)malloc(sizeof(char *) * (_word_count(_removed, len) + 1));
-	if (result == NULL)
-		return (0);
+	_guard_result(result, _removed);
 	i = 0;
 	index = 0;
 	while (i < len)
