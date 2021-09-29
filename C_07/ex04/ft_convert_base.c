@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 10:52:27 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/28 14:20:42 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/29 18:02:14 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int	_validate_base(char *base)
 	{
 		if (base[i] == ' ' || base[i] == '+' || base[i] == '-')
 			return (0);
-		else if (base[i] == '\n' || base[i] == '\t' || \
-			base[i] == '\v' || base[i] == '\r')
+		else if (base[i] >= 9 && base[i] <= 13)
 			return (0);
 	}
 	i = -1;
