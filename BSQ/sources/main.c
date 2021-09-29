@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 10:26:37 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/27 00:14:06 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/28 17:32:12 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,9 @@ void	_run(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	_run(argc, argv);
+	while (1)
+	{
+		;
+	}
 	return (0);
 }

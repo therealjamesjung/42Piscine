@@ -6,7 +6,7 @@
 #    By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/26 13:57:15 by jaekjung          #+#    #+#              #
-#    Updated: 2021/09/26 23:46:02 by jaekjung         ###   ########.fr        #
+#    Updated: 2021/09/28 16:16:04 by jaekjung         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ SRC = ./sources/
 INC = ./includes/
 OBJ = ./objects/
 
-SRCFILES = $(SRC)main.c $(SRC)logic.c $(SRC)utils.c $(SRC)parser.c $(SRC)string_utils.c $(SRC)atoi.c $(SRC)error.c $(SRC)guard.c
-OBJFILES = 	$(addprefix $(OBJ), $(notdir $(SRCFILES:.c=.o)))
+SRCFILES = $(SRC)main.c $(SRC)logic.c $(SRC)utils.c $(SRC)newparser.c $(SRC)string_utils.c $(SRC)atoi.c $(SRC)error.c $(SRC)guard.c $(SRC)ft_split.c
+OBJFILES = $(addprefix $(OBJ), $(notdir $(SRCFILES:.c=.o)))
 
 all : $(NAME)
 

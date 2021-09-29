@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strs_to_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaekjung <jaekjung@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 20:06:48 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/27 19:32:47 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/28 11:35:59 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ t_stock_str	*ft_strs_to_tab(int ac, char **av)
 	int			index;
 	t_stock_str	*array;
 
-	if (!ac || !av)
-		return (0);
 	array = (t_stock_str *)malloc((ac + 1) * sizeof(t_stock_str));
 	if (!array)
 		return (0);
