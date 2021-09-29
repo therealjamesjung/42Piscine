@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 23:38:13 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/26 23:38:14 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/30 01:15:24 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int			is_space(char c);
 void		ft_strcpy(char *dest, char *src);
 t_input		*_file_open(char *str, int is_stdin);
 void		_free_all(int **map, t_input *input, int n);
+void		*_free_input(t_input *input, int n);
 void		_guard_map(int **map, t_input *input, int index);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 23:26:59 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/27 00:13:55 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/30 01:18:32 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,10 @@ t_input	*_get_input_close(t_input *input, int fd)
 {
 	close(fd);
 	return (input);
+}
+
+void	_guard_str(char *str)
+{
+	free(str);
+	exit(1);
 }

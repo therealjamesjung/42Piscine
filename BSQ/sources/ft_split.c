@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 15:05:16 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/28 18:05:02 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/30 01:02:44 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,6 @@ char	**ft_split(char *str, char *charset)
 		i += ft_strlen(_removed + i);
 	}
 	result[index] = NULL;
+	free(_removed);
 	return (result);
 }
