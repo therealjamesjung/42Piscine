@@ -15,6 +15,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include <stdio.h>
+void	_test_put_inputs(char **inputs);
+
 void	_calc_map(int **map, t_input *input)
 {
 	int	i;
@@ -38,6 +41,7 @@ void	_calc_map(int **map, t_input *input)
 			map[i][j] = obs_cnt;
 		}
 	}
+	_test_put_inputs(input->map);
 }
 
 int	_fit_square(int **map, int max_side, int y, int x)
@@ -97,8 +101,13 @@ void	_print_answer(t_answer answer, t_input *input)
 	int				i;
 	int				j;
 	unsigned char	c;
+	char			*ret;
+	int				size;
 
+	size = 0;
 	i = -1;
+	ret = (char *)malloc(sizeof(char) * 2147483647);
+	printf("%d\n", input->n);
 	while (++i < input->n)
 	{
 		j = -1;
@@ -114,8 +123,13 @@ void	_print_answer(t_answer answer, t_input *input)
 				else
 					c = (unsigned char) input->blank;
 			}
+			ret[size] = c;
+			size++;
 			write(1, &c, 1);
 		}
+		ret[size] = '\n';
+		size++;
 		write(1, "\n", 1);
 	}
+	write(1, ret, size);
 }
