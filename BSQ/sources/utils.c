@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 10:28:30 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/26 21:01:20 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/30 11:13:57 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,18 @@ char	*free_buffer(char *buffer)
 	return (0);
 }
 
-char	*ft_realloc(char *buffer, int *size)
+int	_count_line(char *input_file)
 {
-	char	*new_buffer;
+	int	cnt;
+	int	index;
 
-	*size *= 2;
-	new_buffer = (char *)malloc(sizeof(char) * (*size + 1));
-	if (!new_buffer)
-		exit(1);
-	ft_strncpy(new_buffer, buffer, *size);
-	free_buffer(buffer);
-	return (new_buffer);
+	index = 0;
+	cnt = 0;
+	while (input_file[index] != '\0')
+	{
+		if (input_file[index] == '\n')
+			cnt++;
+		index++;
+	}
+	return (cnt);
 }

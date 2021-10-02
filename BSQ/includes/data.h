@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 10:25:40 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/30 04:04:52 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/30 11:49:16 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ typedef struct s_input
 	int		n;
 	int		m;
 	int		size;
-	int		error;
 }	t_input;
 
 # define MAX_BUF 2147483647

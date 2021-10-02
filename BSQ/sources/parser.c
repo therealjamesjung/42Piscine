@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 10:26:41 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/30 03:43:43 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/30 12:02:41 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-int	_set_map_info(t_input *input, char *input_file)
+int	_set_map_info(t_input *input, char *input_file, int line_cnt)
 {
 	int	n;
 	int	ptr;
@@ -29,7 +29,7 @@ int	_set_map_info(t_input *input, char *input_file)
 		if (!input_file[ptr])
 			return (0);
 	}
-	if (ptr < 4 || ! _set_info(input, input_file, &ptr))
+	if (ptr < 4 || !_set_info(input, input_file, &ptr))
 		return (0);
 	n = 0;
 	index = 0;
@@ -38,7 +38,7 @@ int	_set_map_info(t_input *input, char *input_file)
 		n *= 10;
 		n += input_file[index++] - '0';
 	}
-	if (n <= 0)
+	if (n <= 0 || (n + 1) != line_cnt)
 		return (0);
 	input->n = n;
 	return (1);
@@ -82,6 +82,7 @@ t_input	*_set_map(t_input *input, char *input_file)
 	}
 	input->map = ft_split(ptr, "\n");
 	free(input_file);
+	input_file = 0;
 	if (!_is_right_map(input))
 	{
 		_free_input(input);
@@ -96,19 +97,21 @@ t_input	*_parser(char *file_name)
 	char	*max_buf;
 	char	*input_file;
 	t_input	*input;
+	int		line_cnt;
 
 	max_buf = (char *)malloc(sizeof(char) * (MAX_BUF));
 	if (!max_buf)
-		return (0);
+		exit(1);
 	if (!_get_file(file_name, max_buf))
 		return (_free_str(max_buf));
 	input_file = ft_strdup(max_buf);
 	free(max_buf);
 	input = (t_input *)malloc(sizeof(t_input) * 1);
-	input->size = ft_strlen(input_file);
 	if (!input)
 		_guard_str(input_file);
-	if (!_set_map_info(input, input_file))
+	input->size = ft_strlen(input_file);
+	line_cnt = _count_line(input_file);
+	if (!_set_map_info(input, input_file, line_cnt))
 		return (_free_str_input(input_file, input));
 	return (_set_map(input, input_file));
 }

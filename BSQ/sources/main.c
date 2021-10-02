@@ -6,7 +6,7 @@
 /*   By: jaekjung <jaekjung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 10:26:37 by jaekjung          #+#    #+#             */
-/*   Updated: 2021/09/30 04:10:39 by jaekjung         ###   ########.fr       */
+/*   Updated: 2021/09/30 12:14:50 by jaekjung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,7 @@ void	_get_answer(int **map, t_input *input, int is_end)
 int	_check_input(t_input *input)
 {
 	if (input == 0)
-	{
-		write(1, "\n", 1);
 		return (0);
-	}
 	return (1);
 }
 
@@ -63,10 +60,12 @@ void	_run(int argc, char **argv)
 		{
 			if (argc == 1)
 				break ;
+			if (i != argc - 1)
+				write(1, "\n", 1);
 			continue ;
 		}
 		map = _alloc_map(input);
-		_get_answer(map, input, (i == argc - 1));
+		_get_answer(map, input, (i == argc - 1 || argc == 1));
 		_free_all(map, input, input->n);
 		if (argc == 1)
 			break ;
