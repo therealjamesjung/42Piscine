@@ -50,7 +50,7 @@ Just before looking into my codes, you might want to be careful with serveral th
 
 1. **DONT JUST COPY & PASTE** other people's codes. It **DOES NOT** fit with the purpose of La Piscine. You will **FAIL** on your peer evaluation or exams anyway.
 2. My codes are not the answer. There are some that I think are wrong, but had to be that way just to pass the Moulinette. Plus, your own codes might be a better code.
-3. Think about the subject carefully. If you are still having a hard time and need some hints for you subject, OR you think your code is right but the Moulinette keeps on failing, that's when you look into other's codes.
+3. Think about the subject carefully. If you are still having a hard time and need some hints for your subject, OR you think your code is right but the Moulinette keeps on failing, that's when you look into other's codes.
 4. Good luck on your La Piscine!
 
 ### Final Result
